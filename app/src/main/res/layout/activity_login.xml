@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/backdesign"
+    tools:context=".Login">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="20sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:text="Registration Form"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColorHint="#FFEB3B"
+                app:hintTextAppearance="@style/txt_appeerances_color_change"
+                style="@style/materials_bit_change"
+                android:layout_margin="5sp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/logEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:hint=" Enter Your Email "
+                    android:textColor="#FFFFFF"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:padding="13sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColorHint="#FFEB3B"
+                app:hintTextAppearance="@style/txt_appeerances_color_change"
+                style="@style/materials_bit_change"
+                app:passwordToggleEnabled="true"
+                android:layout_margin="5sp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/logPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:hint=" Enter Password "
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:inputType="textPassword"
+                    android:textColorHighlight="#0C0FF7"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:padding="13sp"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/rememberChechBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/check_box_design"
+                    android:textColor="#FFEB3B"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:text=" Remember Me "/>
+
+            </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:id="@+id/forgtPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text=" Don't you remember your password ? "/>
+
+            <Button
+                android:id="@+id/signInValue"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/autotxtdesign"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="Sign In" />
+
+            <TextView
+                android:id="@+id/goSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#F7E9C304"
+                android:textStyle="italic|bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text=" Don't you have an acoount? SIGN UP "/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

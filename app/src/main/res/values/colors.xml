@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="mtrl_filled_background_color" tools:override="true">#86FF4081</color>
+    <color name="mtrl_filled_stroke_color" tools:override="true">#FFFFFF</color>
+    <color name="txt_appens" tools:override="true">#1CE6D1</color>
+    <color name="chkbox_unmark">#FFFFFF</color>
+    <color name="chkbox_mark">#EB09B9</color>
+</resources>

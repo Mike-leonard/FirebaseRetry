@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/backdesign"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="20sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:text="Registration Form"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColorHint="#FFEB3B"
+                app:hintTextAppearance="@style/txt_appeerances_color_change"
+                style="@style/materials_bit_change"
+                android:layout_margin="5sp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/nameGatter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:hint=" Enter Your Name "
+                    android:textColor="#FFFFFF"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:padding="13sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColorHint="#FFEB3B"
+                app:hintTextAppearance="@style/txt_appeerances_color_change"
+                style="@style/materials_bit_change"
+                android:layout_margin="5sp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/emailGatter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:hint=" Enter Email "
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:inputType="textEmailAddress"
+                    android:textColorHighlight="#0C0FF7"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:padding="13sp"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColorHint="#FFEB3B"
+                app:hintTextAppearance="@style/txt_appeerances_color_change"
+                style="@style/materials_bit_change"
+                android:layout_margin="5sp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/numberGatter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:hint=" Enter Number "
+                    android:textColor="#FFFFFF"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:padding="13sp"
+                    android:singleLine="true"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColorHint="#FFEB3B"
+                app:hintTextAppearance="@style/txt_appeerances_color_change"
+                style="@style/materials_bit_change"
+                android:layout_margin="5sp"
+                app:passwordToggleEnabled="true">
+
+                <AutoCompleteTextView
+                    android:id="@+id/passGatter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:hint=" Enter Password "
+                    android:textColor="#FFFFFF"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="13sp"
+                    android:singleLine="true"/>
+
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColorHint="#FFEB3B"
+                app:hintTextAppearance="@style/txt_appeerances_color_change"
+                style="@style/materials_bit_change"
+                android:layout_margin="5sp"
+                app:passwordToggleEnabled="true">
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/confirmPassGatter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="15"
+                    android:hint=" Confirm Password "
+                    android:textColor="#FFFFFF"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="13sp"
+                    android:singleLine="true"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/signUpValue"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/autotxtdesign"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="Register" />
+
+            <TextView
+                android:id="@+id/goSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="You have acoount? Sign In here."/>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

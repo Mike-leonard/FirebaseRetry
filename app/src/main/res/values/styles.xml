@@ -1,0 +1,49 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="materials_bit_change" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <!-- Materials Input design change -->
+        <item name="boxBackgroundColor">@color/mtrl_filled_background_color</item>
+        <item name="boxStrokeColor">@color/mtrl_filled_stroke_color</item>
+        <item name="boxCornerRadiusTopStart">15sp</item>
+        <item name="boxCornerRadiusTopEnd">15sp</item>
+        <item name="boxCornerRadiusBottomStart">15sp</item>
+        <item name="boxCornerRadiusBottomEnd">15sp</item>
+    </style>
+
+    <style name="txt_appeerances_color_change" parent="Base.TextAppearance.AppCompat.Medium">
+
+        <!-- Materials Input design change -->
+        <item name="android:textColor">@color/txt_appens</item>
+    </style>
+    
+    <style name="check_box_design" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:buttonTint" tools:targetApi="lollipop">@color/chkbox_unmark</item>
+        <item name="android:textColorSecondary" tools:targetApi="lollipop">@color/chkbox_mark</item>
+
+
+    </style>
+
+<!--    <?xml version="1.0" encoding="utf-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:color="@color/light_gray_checkbox"
+            android:state_checked="false"/>
+        <item android:color="@color/common_red"
+            android:state_checked="true"/>
+    </selector>-->
+
+
+
+
+
+
+
+</resources>
