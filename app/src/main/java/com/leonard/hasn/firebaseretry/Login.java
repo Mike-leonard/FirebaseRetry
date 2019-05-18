@@ -1,11 +1,14 @@
 package com.leonard.hasn.firebaseretry;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,7 +24,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private AutoCompleteTextView logEmail, logPass;
     private TextView forgtPass, goSignIn;
     private Button signInValue;
+
+    private String username, password;
     private CheckBox rememberChechBox;
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPreferenceEditor;
+    private boolean saveLoginState;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseauthListenEr;
@@ -39,13 +47,23 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         forgtPass = (TextView) findViewById(R.id.forgtPass);
         goSignIn = (TextView) findViewById(R.id.goSignIn);
         signInValue = (Button) findViewById(R.id.signInValue);
+
+        // CheckBox implementation
         rememberChechBox = (CheckBox) findViewById(R.id.rememberChechBox);
+        loginPreferences = getSharedPreferences("loginPrefsData", MODE_PRIVATE);
+        loginPreferenceEditor = loginPreferences.edit();
 
         signInValue.setOnClickListener(this);
         goSignIn.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        // CheckBox Preferences
+        saveLoginState = loginPreferences.getBoolean("saveLoginState", true);
+        if (saveLoginState == true) {
+            logEmail.setText(loginPreferences.getString("Username",null ));
+            logPass.setText(loginPreferences.getString("Password", null));
+        }
     }
 
     private void LogInApp () {
@@ -63,6 +81,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             return;
         }
 
+        // Remember Checked
+        if (rememberChechBox.isChecked()){
+            loginPreferenceEditor.putBoolean("saveLoginState", true);
+            loginPreferenceEditor.putString("Username", LogInValueEmail);
+            loginPreferenceEditor.putString("Password", LogInValuePass);
+            loginPreferenceEditor.commit();
+        }
+
         firebaseAuth.signInWithEmailAndPassword(LogInValueEmail, LogInValuePass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -72,7 +98,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                             Intent intent_Go = new Intent(Login.this, GoPage.class);
                             startActivity(intent_Go);
-                            finish();
+
                             Toast.makeText(Login.this, " Log In Success! ", Toast.LENGTH_SHORT).show();
 
                         } else {
@@ -98,6 +124,25 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         if (view == signInValue) {
 
             LogInApp();
+
+           /* InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(logEmail.getWindowToken(), 0);
+
+            username = logEmail.getText().toString().trim();
+            password = logPass.getText().toString().trim();
+
+            if (rememberChechBox.isChecked()) {
+
+                loginPreferenceEditor.putBoolean("saveLoginState", true);
+                loginPreferenceEditor.putString("username", username);
+                loginPreferenceEditor.putString("password", password);
+            }
+            else  {
+
+                loginPreferenceEditor.clear();
+                loginPreferenceEditor.commit();
+            }*/
+
         }
         if (view == goSignIn) {
 
