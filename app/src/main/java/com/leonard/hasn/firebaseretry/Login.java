@@ -18,14 +18,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private AutoCompleteTextView logEmail, logPass;
     private TextView forgtPass, goSignIn;
-    private Button signInValue;
+    private Button signInValue, guestLogin;
 
-    private String username, password;
     private CheckBox rememberChechBox;
     private SharedPreferences loginPreferences;
     private SharedPreferences.Editor loginPreferenceEditor;
@@ -47,6 +47,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         forgtPass = (TextView) findViewById(R.id.forgtPass);
         goSignIn = (TextView) findViewById(R.id.goSignIn);
         signInValue = (Button) findViewById(R.id.signInValue);
+        guestLogin = (Button) findViewById(R.id.guestLogIn);
 
         // CheckBox implementation
         rememberChechBox = (CheckBox) findViewById(R.id.rememberChechBox);
@@ -55,6 +56,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         signInValue.setOnClickListener(this);
         goSignIn.setOnClickListener(this);
+        guestLogin.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -65,6 +67,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             logPass.setText(loginPreferences.getString("Password", null));
         }
     }
+
+
 
     private void LogInApp () {
 
@@ -113,6 +117,55 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+   private void GuestUserLogIN () {
+
+        firebaseAuth.signInAnonymously()
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+
+                    Intent intent_Go = new Intent(Login.this, GoPage.class);
+                    startActivity(intent_Go);
+                    Toast.makeText(Login.this," Guest User ", Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                    Toast.makeText(Login.this," Failed To Guest Login ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+    }
+
+
+
+      /*private void updateUI (FirebaseUser user) {
+
+          if (user == null) {
+
+              firebaseAuth.signInAnonymously()
+                      .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                          @Override
+                          public void onComplete(@NonNull Task<AuthResult> task) {
+
+                              if (task.isSuccessful()) {
+
+                                  FirebaseUser user = firebaseAuth.getCurrentUser();
+                                  updateUI(user);
+                              }
+                              else {
+                                  updateUI(null);
+                              }
+                          }
+                      });
+          }
+
+      }*/
+
+
     private void goSignUpPage () {
         Intent intent = new Intent(Login.this, MainActivity.class);
         startActivity(intent);
@@ -125,32 +178,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             LogInApp();
 
-           /* InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(logEmail.getWindowToken(), 0);
-
-            username = logEmail.getText().toString().trim();
-            password = logPass.getText().toString().trim();
-
-            if (rememberChechBox.isChecked()) {
-
-                loginPreferenceEditor.putBoolean("saveLoginState", true);
-                loginPreferenceEditor.putString("username", username);
-                loginPreferenceEditor.putString("password", password);
-            }
-            else  {
-
-                loginPreferenceEditor.clear();
-                loginPreferenceEditor.commit();
-            }*/
-
         }
         if (view == goSignIn) {
 
             goSignUpPage();
         }
 
+        if (view == guestLogin) {
+
+            GuestUserLogIN();
+        }
+
 
     }
+
 
     @Override
     protected void onStart () {
@@ -159,5 +200,19 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             finish();
             startActivity(new Intent(this, GoPage.class));
         }
+
+     /*  FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+       updateUI(currentUser);*/
     }
 }
+
+  /*  private void setOnClick(final Button btn, final String str){
+        btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Do whatever you want(str can be used here)
+
+            }
+        });
+    }*/

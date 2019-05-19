@@ -122,6 +122,19 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:text=" Don't you have an acoount? SIGN UP "/>
 
+            <Button
+                android:id="@+id/guestLogIn"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/autotxtdesign"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="Guest Login" />
+
+
+
 
 
         </LinearLayout>
